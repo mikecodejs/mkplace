@@ -23,5 +23,3 @@
     </a>
   </p>
 </p>
-
-<!-- TABELA DE CONTEUDO -->
