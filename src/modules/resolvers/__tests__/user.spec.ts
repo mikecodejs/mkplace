@@ -1,14 +1,8 @@
-import { MockContext, Context, createMockContext } from "../../../context";
+import { prismaMock } from "../../../singleton";
 import { userCreateResolver } from "../../resolvers/user/userCreateResolver";
 import { userGetAllResolver } from "../../resolvers/user/userGetAllResolver";
-
-let ctx: Context;
-let mockCtx: MockContext;
-
-beforeEach(() => {
-	mockCtx = createMockContext();
-	ctx = mockCtx as unknown as Context;
-});
+import { userDeleteResolver } from "../user/userDeleteResolver";
+import { userUpdateResolver } from "../user/userUpdateResolver";
 
 const mockDate = new Date();
 
@@ -32,39 +26,58 @@ const users = [
 ];
 
 it("should create new user", () => {
-	mockCtx.prisma.user.create.mockResolvedValue(users[0]);
+	prismaMock.user.create.mockResolvedValue(users[0]);
 
-	const test = userCreateResolver(users[0], ctx);
+	const test = userCreateResolver(users[0]);
 
 	expect(test).resolves.toBeTruthy();
 	expect(test).resolves.toEqual(users[0]);
 });
 
 it("should fail if user does not accept terms", () => {
-	mockCtx.prisma.user.create.mockRejectedValue(
+	prismaMock.user.create.mockRejectedValue(
 		new Error("User must accept terms!"),
 	);
 
-	const test = userCreateResolver(users[1], ctx);
+	const test = userCreateResolver(users[1]);
 
 	expect(test).rejects.toEqual(new Error("User must accept terms!"));
 });
 
 it("should return all users", () => {
-	mockCtx.prisma.user.findMany.mockResolvedValue(users);
+	prismaMock.user.findMany.mockResolvedValue(users);
 
-	const test = userGetAllResolver(ctx);
+	const test = userGetAllResolver();
 
 	expect(test).resolves.toHaveLength(2);
 	expect(test).resolves.toEqual(users);
 });
 
 it("should return an error when not finding users", () => {
-	mockCtx.prisma.user.findMany.mockRejectedValue(
+	prismaMock.user.findMany.mockRejectedValue(
 		new Error("Not a found users in database"),
 	);
 
-	const test = userGetAllResolver(ctx);
+	const test = userGetAllResolver();
 
 	expect(test).rejects.toEqual(new Error("Not a found users in database"));
+});
+
+it("should be able to update a user", () => {
+	prismaMock.user.findUnique.mockResolvedValue(users[0]);
+	prismaMock.user.update.mockResolvedValue(users[0]);
+
+	const test = userUpdateResolver(users[0]);
+
+	expect(test).resolves.toBeTruthy();
+	expect(test).resolves.toEqual(users[0]);
+});
+
+it("should be able to delete a user", () => {
+	prismaMock.user.findUnique.mockResolvedValue(users[0]);
+	prismaMock.user.delete.mockResolvedValue(users[0]);
+
+	const test = userDeleteResolver(users[0].id);
+
+	expect(test).resolves.toBeTruthy();
 });
