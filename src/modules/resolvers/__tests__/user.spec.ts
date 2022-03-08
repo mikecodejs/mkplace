@@ -55,9 +55,7 @@ it("should return all users", () => {
 });
 
 it("should return an error when not finding users", () => {
-	prismaMock.user.findMany.mockRejectedValue(
-		new Error("Not a found users in database"),
-	);
+	prismaMock.user.findMany.mockResolvedValue([]);
 
 	const test = userGetAllResolver();
 
@@ -74,6 +72,14 @@ it("should be able to update a user", () => {
 	expect(test).resolves.toEqual(users[0]);
 });
 
+it("should not be able to update a user if it doesn't exist", () => {
+	prismaMock.user.update.mockRejectedValue(new Error("user does not exists!"));
+
+	const test = userUpdateResolver(users[0].id, users[0]);
+
+	expect(test).rejects.toEqual(new Error("user does not exists!"));
+});
+
 it("should be able to delete a user", () => {
 	prismaMock.user.findUnique.mockResolvedValue(users[0]);
 	prismaMock.user.delete.mockResolvedValue(users[0]);
@@ -81,4 +87,12 @@ it("should be able to delete a user", () => {
 	const test = userDeleteResolver(users[0].id);
 
 	expect(test).resolves.toBeTruthy();
+});
+
+it("should not be able to delete a user if it doesn't exist", () => {
+	prismaMock.user.delete.mockRejectedValue(new Error("user does not exists!"));
+
+	const test = userDeleteResolver(users[0].id);
+
+	expect(test).rejects.toEqual(new Error("user does not exists!"));
 });
