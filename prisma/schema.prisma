@@ -12,13 +12,13 @@ datasource db {
 }
 
 model User {
-  id                       String    @id @default(auto()) @map("_id") @db.ObjectId
+  id                       String   @id @default(auto()) @map("_id") @db.ObjectId
   name                     String
-  email                    String    @unique
+  email                    String   @unique
   acceptTermsAndConditions Boolean
-  product                  Product[]
-  createdAt                DateTime  @default(now())
-  updatedAt                DateTime  @updatedAt
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+  sale                     Sale[]
 }
 
 model Product {
@@ -28,6 +28,15 @@ model Product {
   price     Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  product   Sale[]
+}
+
+model Sale {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   User      User?    @relation(fields: [userId], references: [id])
   userId    String?  @db.ObjectId
+  Product   Product? @relation(fields: [productId], references: [id])
+  productId String?  @db.ObjectId
 }
