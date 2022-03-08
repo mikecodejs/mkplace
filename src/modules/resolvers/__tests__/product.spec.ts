@@ -45,9 +45,7 @@ it("should return all products", () => {
 });
 
 it("should return an error when not finding products", () => {
-	prismaMock.product.findMany.mockRejectedValue(
-		new Error("Not a found products in database"),
-	);
+	prismaMock.product.findMany.mockResolvedValue([]);
 
 	const test = productGetAllResolver();
 
@@ -64,6 +62,16 @@ it("should be able to update a product", () => {
 	expect(test).resolves.toEqual(products[0]);
 });
 
+it("should not be able to update a product if it doesn't exist", () => {
+	prismaMock.user.update.mockRejectedValue(
+		new Error("product does not exists!"),
+	);
+
+	const test = productUpdateResolver(products[0].id, products[0]);
+
+	expect(test).rejects.toEqual(new Error("product does not exists!"));
+});
+
 it("should be able to delete a product", () => {
 	prismaMock.product.findUnique.mockResolvedValue(products[0]);
 	prismaMock.product.delete.mockResolvedValue(products[0]);
@@ -71,4 +79,14 @@ it("should be able to delete a product", () => {
 	const test = productDeleteResolver(products[0].id);
 
 	expect(test).resolves.toBeTruthy();
+});
+
+it("should not be able to delete a product if it doesn't exist", () => {
+	prismaMock.user.delete.mockRejectedValue(
+		new Error("product does not exists!"),
+	);
+
+	const test = productDeleteResolver(products[0].id);
+
+	expect(test).rejects.toEqual(new Error("product does not exists!"));
 });
