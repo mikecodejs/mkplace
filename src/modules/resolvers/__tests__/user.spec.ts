@@ -1,6 +1,6 @@
 import { prismaMock } from "../../../singleton";
-import { userCreateResolver } from "../../resolvers/user/userCreateResolver";
-import { userGetAllResolver } from "../../resolvers/user/userGetAllResolver";
+import { userCreateResolver } from "../user/userCreateResolver";
+import { userGetAllResolver } from "../user/userGetAllResolver";
 import { userDeleteResolver } from "../user/userDeleteResolver";
 import { userUpdateResolver } from "../user/userUpdateResolver";
 
@@ -67,7 +67,7 @@ it("should be able to update a user", () => {
 	prismaMock.user.findUnique.mockResolvedValue(users[0]);
 	prismaMock.user.update.mockResolvedValue(users[0]);
 
-	const test = userUpdateResolver(users[0]);
+	const test = userUpdateResolver(users[0].id, users[0]);
 
 	expect(test).resolves.toBeTruthy();
 	expect(test).resolves.toEqual(users[0]);

@@ -6,7 +6,9 @@ export const userDeleteController = async (
 	request: Request,
 	response: Response,
 ): Promise<Response<User>> => {
-	await userDeleteResolver(request.body.id);
+	const id = request.params.id;
+
+	await userDeleteResolver(id);
 
 	return response.status(200).json({
 		message: "✨ user successfully deleted",
