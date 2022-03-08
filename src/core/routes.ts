@@ -11,8 +11,8 @@ const router = Router();
 
 router.get("/user", userGetAllController);
 router.post("/user", userCreateController);
-router.put("/user", userUpdateController);
-router.delete("/user", userDeleteController);
+router.put("/user/:id", userUpdateController);
+router.delete("/user/:id", userDeleteController);
 
 router.post("/product", productCreateController);
 
