@@ -3,7 +3,7 @@ import prisma from "../../../client";
 
 export const saleCreateResolver = async (sale: Sale): Promise<Sale> => {
 	const isUser = await prisma.user.findUnique({ where: { id: sale.userId } });
-	const isProduct = await prisma.user.findUnique({
+	const isProduct = await prisma.product.findUnique({
 		where: { id: sale.productId },
 	});
 
