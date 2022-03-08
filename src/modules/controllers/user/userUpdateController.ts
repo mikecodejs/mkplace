@@ -8,7 +8,7 @@ export const userUpdateController = async (
 ): Promise<Response<User>> => {
 	const user = await userUpdateResolver(request.body);
 
-	return response.status(201).json({
+	return response.status(200).json({
 		message: "✨ user successfully update updated",
 		user,
 	});
