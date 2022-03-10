@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction, Application } from "express";
+import { Request, Response, NextFunction } from "express";
 import cors from "cors";
 
 export const corsMiddleware = (

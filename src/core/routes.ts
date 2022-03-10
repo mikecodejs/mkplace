@@ -6,22 +6,23 @@ import { userGetAllController } from "../modules/controllers/user/userGetAllCont
 import { userUpdateController } from "../modules/controllers/user/userUpdateController";
 
 import { productCreateController } from "../modules/controllers/product/productCreateController";
-import { saleCreateController } from "../modules/controllers/sale/saleCreateController";
 import { productUpdateController } from "../modules/controllers/product/productUpdateController";
 import { productDeleteController } from "../modules/controllers/product/productDeleteController";
 import { productGetAllController } from "../modules/controllers/product/productGetAllController";
 
+import { saleCreateController } from "../modules/controllers/sale/saleCreateController";
+
 const router = Router();
 
-router.get("/user", userGetAllController);
+router.get("/users", userGetAllController);
 router.post("/user", userCreateController);
 router.put("/user/:id", userUpdateController);
 router.delete("/user/:id", userDeleteController);
 
-router.get("/product", productGetAllController);
+router.get("/products", productGetAllController);
 router.post("/product", productCreateController);
-router.put("/product", productUpdateController);
-router.delete("/product", productDeleteController);
+router.put("/product/:id", productUpdateController);
+router.delete("/product/:id", productDeleteController);
 
 router.post("/sale", saleCreateController);
 
