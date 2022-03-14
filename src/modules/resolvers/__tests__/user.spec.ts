@@ -36,10 +36,6 @@ it("should create new user", () => {
 });
 
 it("should fail if user does not accept terms", () => {
-	prismaMock.user.create.mockRejectedValue(
-		new Error("User must accept terms!"),
-	);
-
 	const test = userCreateResolver(users[1]);
 
 	expect(test).rejects.toEqual(new Error("User must accept terms!"));
@@ -73,8 +69,6 @@ it("should be able to update a user", () => {
 });
 
 it("should not be able to update a user if it doesn't exist", () => {
-	prismaMock.user.update.mockRejectedValue(new Error("user does not exists!"));
-
 	const test = userUpdateResolver(users[0].id, users[0]);
 
 	expect(test).rejects.toEqual(new Error("user does not exists!"));
@@ -90,8 +84,6 @@ it("should be able to delete a user", () => {
 });
 
 it("should not be able to delete a user if it doesn't exist", () => {
-	prismaMock.user.delete.mockRejectedValue(new Error("user does not exists!"));
-
 	const test = userDeleteResolver(users[0].id);
 
 	expect(test).rejects.toEqual(new Error("user does not exists!"));

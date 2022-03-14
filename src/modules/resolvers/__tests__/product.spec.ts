@@ -2,6 +2,7 @@ import { prismaMock } from "../../../singleton";
 
 import { productCreateResolver } from "../product/productCreateResolver";
 import { productDeleteResolver } from "../product/productDeleteResolver";
+import { productFindOneResolver } from "../product/productFindOneResolver";
 import { productGetAllResolver } from "../product/productGetAllResolver";
 import { productUpdateResolver } from "../product/productUpdateResolver";
 
@@ -35,6 +36,21 @@ it("should create new product", () => {
 	expect(test).resolves.toEqual(products[0]);
 });
 
+it("should be able find product", () => {
+	prismaMock.product.findUnique.mockResolvedValue(products[0]);
+
+	const test = productFindOneResolver(products[0].id);
+
+	expect(test).resolves.toBeTruthy();
+	expect(test).resolves.toEqual(products[0]);
+});
+
+it("should not be able if not exists user in database", () => {
+	const test = productFindOneResolver(products[0].id);
+
+	expect(test).rejects.toEqual(new Error("Not a found product in database"));
+});
+
 it("should return all products", () => {
 	prismaMock.product.findMany.mockResolvedValue(products);
 
@@ -45,8 +61,6 @@ it("should return all products", () => {
 });
 
 it("should return an error when not finding products", () => {
-	prismaMock.product.findMany.mockResolvedValue([]);
-
 	const test = productGetAllResolver();
 
 	expect(test).rejects.toEqual(new Error("Not a found products in database"));
@@ -63,10 +77,6 @@ it("should be able to update a product", () => {
 });
 
 it("should not be able to update a product if it doesn't exist", () => {
-	prismaMock.user.update.mockRejectedValue(
-		new Error("product does not exists!"),
-	);
-
 	const test = productUpdateResolver(products[0].id, products[0]);
 
 	expect(test).rejects.toEqual(new Error("product does not exists!"));
@@ -82,10 +92,6 @@ it("should be able to delete a product", () => {
 });
 
 it("should not be able to delete a product if it doesn't exist", () => {
-	prismaMock.user.delete.mockRejectedValue(
-		new Error("product does not exists!"),
-	);
-
 	const test = productDeleteResolver(products[0].id);
 
 	expect(test).rejects.toEqual(new Error("product does not exists!"));
