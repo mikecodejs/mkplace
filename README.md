@@ -24,44 +24,40 @@
   </p>
 </p>
 
-## 🚀 Começando
+## 🚀 Como usar
 
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-### 📋 Pré-requisitos
+### 🔧 Instalando
 
-De que coisas você precisa para instalar o software e como instalá-lo?
+Precisamos de algumas etapas para configurar o projeto.
+
+Instale as dependências do projeto
 
 ```
 yarn
+# or
+yarn install
 ```
 
-### 🔧 Instalação
-
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
-
-Diga como essa etapa será:
+Em seguida configure as variáveis de ambiente baseadas no `.env.example`
 
 ```
-Dar exemplos
+DATABASE_URL="mongodb+srv://username:password@cluster0.n6c0y.mongodb.net/database?retryWrites=true&w=majority"
 ```
 
-E repita:
+Para executar a aplicação execute
 
 ```
-Até finalizar
+yarn dev
 ```
 
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
+Acesse seu `http://localhost:8080` para tera acesso aos endpoints da aplicação.
 
-## ⚙️ Executando os testes
+<img src="./docs/assets/screen.png" alt="Logo" height="auto" style="max-width: 100%" />
 
-Explicar como executar os testes automatizados para este sistema.
-
-### 🔩 Analise os testes de ponta a ponta
-
-Explique que eles verificam esses testes e porquê.
+### ⚙️ Executando os testes
 
 ```
-Dar exemplos
+yarn test
 ```
