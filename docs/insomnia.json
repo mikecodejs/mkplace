@@ -1,0 +1,367 @@
+{
+	"_type": "export",
+	"__export_format": 4,
+	"__export_date": "2022-03-14T21:12:10.497Z",
+	"__export_source": "insomnia.desktop.app:v2022.1.1",
+	"resources": [
+		{
+			"_id": "req_5ee6163d1e0045dbb248f9cc01ca8572",
+			"parentId": "fld_fa5344fc0ff34a2792669fb3421f1e8b",
+			"modified": 1646754489031,
+			"created": 1646715446673,
+			"url": "http://localhost:8080/api/sale",
+			"name": "Criar nova venda",
+			"description": "",
+			"method": "POST",
+			"body": { "mimeType": "application/json", "text": "" },
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_4e1d9f12355347bf9e709564a3a71e3c"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1646715446674,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_fa5344fc0ff34a2792669fb3421f1e8b",
+			"parentId": "wrk_75d80864f24b439488291de807ca7dfb",
+			"modified": 1646715429727,
+			"created": 1646715429727,
+			"name": "Sale",
+			"description": "",
+			"environment": {},
+			"environmentPropertyOrder": null,
+			"metaSortKey": -1646715429727,
+			"_type": "request_group"
+		},
+		{
+			"_id": "wrk_75d80864f24b439488291de807ca7dfb",
+			"parentId": null,
+			"modified": 1646707720901,
+			"created": 1646707720901,
+			"name": "MKPLACE",
+			"description": "",
+			"scope": "collection",
+			"_type": "workspace"
+		},
+		{
+			"_id": "req_389e859d322c4a46b1a7ddbe10918826",
+			"parentId": "fld_62eda4ba94124a0a9745cc28767142a6",
+			"modified": 1647234408149,
+			"created": 1646890276664,
+			"url": "http://localhost:8080/api/product/622ec8b5479c11b1f2699a92",
+			"name": "Buscar produto",
+			"description": "",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1646890276664,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_62eda4ba94124a0a9745cc28767142a6",
+			"parentId": "wrk_75d80864f24b439488291de807ca7dfb",
+			"modified": 1646710419810,
+			"created": 1646710419810,
+			"name": "Produtos",
+			"description": "",
+			"environment": {},
+			"environmentPropertyOrder": null,
+			"metaSortKey": -1646710419810,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_e3ac1036f78a4077828dac5540f869fa",
+			"parentId": "fld_62eda4ba94124a0a9745cc28767142a6",
+			"modified": 1647291378643,
+			"created": 1646715498050,
+			"url": "http://localhost:8080/api/products",
+			"name": "Busca todos os produtos",
+			"description": "",
+			"method": "GET",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"key\": \"sale\",\n\t\"value\": \"6226c482510cdc418bac9e17\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1123a0b77f4b4f65abc23774a59881ca"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1646715498050,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_0ffba3e378b24d9c9966ad5afdaacdae",
+			"parentId": "fld_62eda4ba94124a0a9745cc28767142a6",
+			"modified": 1647236666346,
+			"created": 1646710437583,
+			"url": "http://localhost:8080/api/product",
+			"name": "Criar novo produto",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Smart TV Samsung QLED 4K 65Q70A Design Slim Modo Game Som em Movimento Virtual Tela Sem Limites 65\",\n\t\"brand\": \"Samsung\",\n\t\"price\": 6204.93\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1cad118ca216448e8c261853d7eca4b2"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1646710437583,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_d14f938a9e6242d08c7da59e06674946",
+			"parentId": "fld_62eda4ba94124a0a9745cc28767142a6",
+			"modified": 1647236667778,
+			"created": 1646890290273,
+			"url": "http://localhost:8080/api/product/6226cf2bafe203c6038c8df0",
+			"name": "Atualizar produto",
+			"description": "",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Samsung Galaxy A13\",\n\t\"brand\": \"Samsung\",\n\t\"price\": 2032.5,\n\t\"createdAt\": \"2022-03-08T03:36:11.925Z\",\n\t\"updatedAt\": \"2022-03-08T03:36:11.926Z\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_960b8ebf2253443c84b6e323bf9beb2b"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1646710437533,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_1f1142bd22684ab6adedc5e51b0cf7a5",
+			"parentId": "fld_62eda4ba94124a0a9745cc28767142a6",
+			"modified": 1646890390843,
+			"created": 1646890380922,
+			"url": "http://localhost:8080/api/product/6226cf2bafe203c6038c8df0",
+			"name": "Delete product",
+			"description": "",
+			"method": "DELETE",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1646710437483,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_247cb4dd570a4814ba62f55424d37162",
+			"parentId": "fld_fc5e3fcc74c54844a2377f7e587698d7",
+			"modified": 1646707748596,
+			"created": 1646707739358,
+			"url": "http://localhost:8080/api/user",
+			"name": "Buscar todos os usuários",
+			"description": "",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1646707739358,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_fc5e3fcc74c54844a2377f7e587698d7",
+			"parentId": "wrk_75d80864f24b439488291de807ca7dfb",
+			"modified": 1646707730884,
+			"created": 1646707730884,
+			"name": "Usuários",
+			"description": "",
+			"environment": {},
+			"environmentPropertyOrder": null,
+			"metaSortKey": -1646707730884,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_9f05ea86ce814838a3233e9f102c0a3c",
+			"parentId": "fld_fc5e3fcc74c54844a2377f7e587698d7",
+			"modified": 1646710439777,
+			"created": 1646707805828,
+			"url": "http://localhost:8080/api/user",
+			"name": "Criar novo usuário",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Pedro Silva\",\n\t\"email\": \"pedro_silva933@gmail.com\",\n\t\"acceptTermsAndConditions\": true\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_08c889d007f24b9ca096d6d1d3e86034"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1646707739308,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_2e676bbb5bbf47e9bdd37fc965a3a5d4",
+			"parentId": "fld_fc5e3fcc74c54844a2377f7e587698d7",
+			"modified": 1646708647810,
+			"created": 1646708529428,
+			"url": "http://localhost:8080/api/user/6226c74dafe203c6038c8dee",
+			"name": "Atualizar usuário",
+			"description": "",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Pedro Silva\",\n\t\"email\": \"pedro_silva933@gmail.com\",\n\t\"acceptTermsAndConditions\": false\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_43180142741d4db6a4c145aca8f3a0aa"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1646707739283,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_245127a93f1c475fbf9ec879a6219766",
+			"parentId": "fld_fc5e3fcc74c54844a2377f7e587698d7",
+			"modified": 1646708510948,
+			"created": 1646708477323,
+			"url": "http://localhost:8080/api/user/6226c6ddafe203c6038c8ded",
+			"name": "Deletar novo usuário",
+			"description": "",
+			"method": "DELETE",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1646707739258,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "env_7306fd3e12a1423fe18a6823e97b07513f59e9ab",
+			"parentId": "wrk_75d80864f24b439488291de807ca7dfb",
+			"modified": 1646707720915,
+			"created": 1646707720915,
+			"name": "Base Environment",
+			"data": {},
+			"dataPropertyOrder": null,
+			"color": null,
+			"isPrivate": false,
+			"metaSortKey": 1646707720915,
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_7306fd3e12a1423fe18a6823e97b07513f59e9ab",
+			"parentId": "wrk_75d80864f24b439488291de807ca7dfb",
+			"modified": 1646707720919,
+			"created": 1646707720919,
+			"name": "Default Jar",
+			"cookies": [],
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "spc_19012e0a387d41cf90d490c98b550f81",
+			"parentId": "wrk_75d80864f24b439488291de807ca7dfb",
+			"modified": 1646707720908,
+			"created": 1646707720908,
+			"fileName": "MKPLACE",
+			"contents": "",
+			"contentType": "yaml",
+			"_type": "api_spec"
+		}
+	]
+}

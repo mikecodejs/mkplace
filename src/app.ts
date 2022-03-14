@@ -1,4 +1,5 @@
 import express, { Application } from "express";
+import path from "path";
 import morgan from "morgan";
 
 import "express-async-errors";
@@ -12,11 +13,11 @@ const app: Application = express();
 app.use(corsMiddleware);
 
 app.use(morgan("dev"));
+app.use(express.static(path.join(__dirname, "..", "docs")));
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
-
 app.use(errorMiddleware);
 
 const port = 8080;
