@@ -11,6 +11,7 @@ import { productDeleteController } from "../modules/controllers/product/productD
 import { productGetAllController } from "../modules/controllers/product/productGetAllController";
 
 import { saleCreateController } from "../modules/controllers/sale/saleCreateController";
+import { productFindOneController } from "../modules/controllers/product/productFindOneController";
 
 const router = Router();
 
@@ -19,6 +20,7 @@ router.post("/user", userCreateController);
 router.put("/user/:id", userUpdateController);
 router.delete("/user/:id", userDeleteController);
 
+router.get("/product/:id", productFindOneController);
 router.get("/products", productGetAllController);
 router.post("/product", productCreateController);
 router.put("/product/:id", productUpdateController);

@@ -54,14 +54,14 @@ it("should not be able if not exists user in database", () => {
 it("should return all products", () => {
 	prismaMock.product.findMany.mockResolvedValue(products);
 
-	const test = productGetAllResolver();
+	const test = productGetAllResolver({ key: "", value: "" });
 
 	expect(test).resolves.toHaveLength(2);
 	expect(test).resolves.toEqual(products);
 });
 
 it("should return an error when not finding products", () => {
-	const test = productGetAllResolver();
+	const test = productGetAllResolver({ key: "", value: "" });
 
 	expect(test).rejects.toEqual(new Error("Not a found products in database"));
 });
