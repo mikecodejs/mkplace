@@ -10,5 +10,5 @@
 		"jest.config.js",
 		"."
 	],
-	"exclude": []
+	"exclude": ["./docs"]
 }

@@ -16,3 +16,6 @@ docker
 coverage
 reports
 __snapshots__
+
+# Docs output
+docs
