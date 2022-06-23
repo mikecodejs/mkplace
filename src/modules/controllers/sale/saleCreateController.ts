@@ -9,7 +9,7 @@ export const saleCreateController = async (
 	const sale = await saleCreateResolver(request.body);
 
 	return response.status(201).json({
-		message: "✨ sale successfully created ",
+		message: "✨ sale successfully created",
 		sale,
 	});
 };
