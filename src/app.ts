@@ -1,12 +1,12 @@
 import express, { Application } from "express";
-import path from "path";
 import morgan from "morgan";
+import path from "path";
 
 import "express-async-errors";
 
-import { router } from "./core/routes";
 import { corsMiddleware } from "./core/cors";
 import { errorMiddleware } from "./core/error";
+import { router } from "./core/routes";
 
 const app: Application = express();
 
@@ -23,5 +23,5 @@ app.use(errorMiddleware);
 const port = 8080;
 
 app.listen(port, () =>
-	console.log(`✨ API is running on http://localhost:${port}`),
+	console.log(`✨ API is running at http://localhost:${port}`),
 );
